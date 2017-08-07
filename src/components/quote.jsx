@@ -11,7 +11,7 @@ const Quote = ({name, price, statu, edit}) => {
         <div className='item-wrapper'>
             <div className='item-name'>{name}</div>
             {editBtn}
-            <div className='item-price'>{price}</div>
+            <div className='item-price' dangerouslySetInnerHTML={{__html: price}}></div>
             <div className="clearfix"></div>
         </div>
     );

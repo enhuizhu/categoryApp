@@ -15,7 +15,7 @@ class App extends React.Component {
         this.state = {
             quotes: [],
             appStatus: status.NORMAL,
-            editIndex: null
+            editItem: null
         };
         
         this.data = {
@@ -28,8 +28,7 @@ class App extends React.Component {
     }
 
     edit(index) {
-        console.log('edit index:', index);
-        this.setState({editIndex: index});
+        this.setState({editItem: this.state.quotes[index]});
         jQuery('#myModal').modal('show');
     }
 
@@ -37,8 +36,12 @@ class App extends React.Component {
         this.listener = store.subscribe(this.onChangeState.bind(this));        
     }
 
-    updateAppStatus() {
-        this.setState({appStatus: this.state.appStatus === status.NORMAL ? status.EDIT : status.NORMAL});
+    updateAppStatus(statu, popup = true) {
+        if (statu === status.NORMAL && popup) {
+            jQuery('#myModal').modal('show');
+        }
+
+        this.setState({appStatus: statu});
         console.log('new state in updateAppStatus', this.state);
     } 
 
@@ -48,14 +51,24 @@ class App extends React.Component {
     }
 
     addQuote(obj) {
-        quotesActions.addQuote({name: obj.quoteName, price: obj.quotePrice});
+        
+        let newObj = {
+            name: obj.quoteName,
+            price: obj.quotePrice,
+            id: obj.id
+        }
+        
+        if (this.state.appStatus === status.EDIT) {
+            quotesActions.updateQuote(newObj);
+        } else {
+            quotesActions.addQuote(newObj);
+        }        
     }
 
     render() {
-        return <div className='container'>
-            <button data-toggle="modal" data-target="#myModal" className="btn btn-primary">Add Item</button>
+        return <div className='container'>            
             <Quotes items={this.state.quotes} statu={this.state.appStatus} changeStatus={this.updateAppStatus} edit={this.edit}></Quotes>
-            <AddQuote items={this.data.items} callback={this.addQuote} statu={this.state.statu} editIndex={this.state.editIndex}></AddQuote>
+            <AddQuote items={this.data.items} callback={this.addQuote} statu={this.state.appStatus} editItem={this.state.editItem}></AddQuote>
         </div>;
     }
 }

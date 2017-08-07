@@ -17,8 +17,12 @@ $gray: #c7c6c6;
                 float: left;
             }
 
-            .amend-quote, .number, .item-price, .edit-btn {
+            .add-quote, .amend-quote, .number, .item-price, .edit-btn {
                 float: right;
+            }
+
+            .add-quote {
+                margin-right: 10px;
             }
         }
 

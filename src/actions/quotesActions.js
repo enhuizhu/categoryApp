@@ -11,6 +11,14 @@ class QuotesAction {
             data: item
         });
     }
+
+    static updateQuote(item) {
+    	console.log('item to update', item);
+    	store.dispatch({
+    		type: events.UPDATE_QUOTE,
+    		data: item
+    	})
+    }
 }
 
 export default QuotesAction;
