@@ -1,0 +1,31 @@
+$gray: #c7c6c6;
+
+#app {
+    width: 100%;
+
+    .quotes-container {
+        width: 900px;
+        padding: 10px;
+        max-width: 100%;
+        background: white;
+        box-shadow: 2px 2px 2px $gray;
+        margin: 0 auto;
+        border: solid 1px $gray;
+
+        .quotes-header, .total, .item-wrapper {
+            label, .item-name {
+                float: left;
+            }
+
+            .amend-quote, .number, .item-price, .edit-btn {
+                float: right;
+            }
+        }
+
+        .item-wrapper {
+            .edit-btn {
+                margin-left: 10px;
+            }
+        } 
+    }
+}
