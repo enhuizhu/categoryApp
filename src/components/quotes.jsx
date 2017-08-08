@@ -10,7 +10,17 @@ class Quotes extends React.Component {
     }
 
     format(price) {
-        return "&pound;" + price.toFixed(2);
+        let localString = price.toLocaleString("en-GB", {style: "currency", currency: "GBP", minimumFractionDigits: 2});
+        console.log('localString', localString);
+        let formatedPrice = localString.split('.').map((v, i) => {
+            if(i === 1) {
+                return `<span>${v}</span>`;
+            } 
+
+            return v;
+        }).join('.');
+
+        return formatedPrice;
     }
 
     render() {         
@@ -31,8 +41,8 @@ class Quotes extends React.Component {
             <div className='quotes-container'>
                 <div className='quotes-header'>
                    <label>Quotes details</label>
-                   <a href='javascript:void(0)' className='amend-quote' onClick={() => {this.props.changeStatus(this.props.statu === status.EDIT ? status.NORMAL : status.EDIT, false)}}>Amend quote</a>
-                   <a href='javascript:void(0)' data-toggle="modal" className='add-quote' onClick={() => {this.props.changeStatus(status.NORMAL)}}>Add Item</a>
+                   <a href='javascript:void(0)' className='amend-quote font-blue' onClick={() => {this.props.changeStatus(this.props.statu === status.EDIT ? status.NORMAL : status.EDIT, false)}}>Amend quote</a>
+                   <a href='javascript:void(0)' data-toggle="modal" className='add-quote font-blue' onClick={() => {this.props.changeStatus(status.NORMAL)}}>Add Item</a>
                    <div className="clearfix"></div>
                 </div>
 
@@ -47,7 +57,7 @@ class Quotes extends React.Component {
                    <div className="clearfix"></div>
                 </div>
                 
-                <div className='total'>
+                <div className='total bottom-border'>
                     <label>VAT</label>
                     <div className='number' dangerouslySetInnerHTML={{__html: this.format(vat)}}>
                     </div>
@@ -56,7 +66,7 @@ class Quotes extends React.Component {
 
                 <div className='total'>
                     <label>Total quotes (inc. VAT)</label>
-                    <div className='number' dangerouslySetInnerHTML={{__html: this.format(totalPriceIncVat)}}>
+                    <div className='number font-blue big-font' dangerouslySetInnerHTML={{__html: this.format(totalPriceIncVat)}}>
                     </div>
                    <div className="clearfix"></div>
                 </div>

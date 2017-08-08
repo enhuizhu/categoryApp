@@ -11,7 +11,6 @@ import status from './constants/status';
 class App extends React.Component {
     constructor(props) {
         super(props);
-        console.log('status', status);
         this.state = {
             quotes: [],
             appStatus: status.NORMAL,
@@ -42,7 +41,6 @@ class App extends React.Component {
         }
 
         this.setState({appStatus: statu});
-        console.log('new state in updateAppStatus', this.state);
     } 
 
     onChangeState() {
@@ -51,6 +49,7 @@ class App extends React.Component {
     }
 
     addQuote(obj) {
+        jQuery('#myModal').modal('hide');
         
         let newObj = {
             name: obj.quoteName,

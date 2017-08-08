@@ -1,7 +1,17 @@
 $gray: #c7c6c6;
+$skyBlue: #1d81bf;
 
 #app {
     width: 100%;
+    margin-top: 10px;
+    
+    .bottom-border {
+        border-bottom: solid 1px $gray;   
+    }
+
+    .font-blue {
+        color: $skyBlue;
+    }
 
     .quotes-container {
         width: 900px;
@@ -11,6 +21,7 @@ $gray: #c7c6c6;
         box-shadow: 2px 2px 2px $gray;
         margin: 0 auto;
         border: solid 1px $gray;
+        border-radius: 3px;
 
         .quotes-header, .total, .item-wrapper {
             label, .item-name {
@@ -26,7 +37,37 @@ $gray: #c7c6c6;
             }
         }
 
+        .number {
+            font-size: 15px;
+            span {
+                font-size: 12px;
+            }
+
+            &.big-font {
+                font-size: 18px;
+                span {
+                    font-size: 15px;
+                }
+            }
+        }
+
+        .total {
+            padding: 6px 0; 
+        }
+
+        .list {
+            margin-top: 10px;
+        }
+
         .item-wrapper {
+            @extend .bottom-border;
+            
+            padding: 8px 0;
+            
+            &:last-child {
+                margin-bottom: 10px;
+            }
+            
             .edit-btn {
                 margin-left: 10px;
             }

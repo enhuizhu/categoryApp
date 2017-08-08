@@ -18,9 +18,7 @@ class AddQuote extends React.Component {
         this.quotePriceChange = this.quotePriceChange.bind(this);
     }
 
-    componentWillReceiveProps(nextProps) {
-        console.log('react get nextProps', nextProps);
-        
+    componentWillReceiveProps(nextProps) {        
         if (!_.isEqual(nextProps.editItem, this.props.editItem)) {
             this.setState({
                 quoteName: nextProps.editItem.name,
@@ -39,12 +37,10 @@ class AddQuote extends React.Component {
 
     quoteNameChange(e) {
         this.setState({quoteName: e.target.value});
-        // this.state.quoteName = e.target.value;
     }
 
     quotePriceChange(e) {
         this.setState({quotePrice: e.target.value});
-        // this.state.quotePrice = e.target.value;
     }
 
     add() {
@@ -54,8 +50,6 @@ class AddQuote extends React.Component {
             quoteName: this.props.items[0],
             quotePrice: 0
         });
-
-        console.log('after add, new state', this.state);
     }
 
     isEditing() {
@@ -63,14 +57,7 @@ class AddQuote extends React.Component {
     }
 
     render() {
-        console.log('state in AddQuote', this.state);
-
-        const quotes = this.props.items.map((v, i) => {
-            
-            // if (this.state.quoteName === v) {
-            //     return <option value={v} key={i} defaultValue>{v}</option>;
-            // }
-            
+        const quotes = this.props.items.map((v, i) => {            
             return <option value={v} key={i}>{v}</option>;
         });
 
@@ -82,7 +69,7 @@ class AddQuote extends React.Component {
                         <button type="button" className="close" data-dismiss="modal">&times;</button>
                       </div>
                       <div className="modal-body">
-                        <form>
+                        <form onSubmit={e => {e.preventDefault(); this.add();}}>
                             <div className='form-group'>
                                 <label>Name</label>
                                 
@@ -97,7 +84,7 @@ class AddQuote extends React.Component {
                         </form>
                       </div>
                       <div className="modal-footer">
-                        <button type='button' className='btn btn-primary' data-dismiss='modal' onClick={this.add}>{this.isEditing() ? 'Update' : 'Add'}</button>
+                        <button type='button' className='btn btn-primary' onClick={this.add}>{this.isEditing() ? 'Update' : 'Add'}</button>
                         <button type="button" className="btn btn-default" data-dismiss="modal">Close</button>
                       </div>
                     </div>
