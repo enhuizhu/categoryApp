@@ -44,4 +44,4 @@ gulp.task('watch', () => {
     gulp.watch(['./src/scss/main.scss'], ['buildCss']);
 });
 
-gulp.task('default', ['build']);
+gulp.task('default', ['buildJs', 'buildCss']);

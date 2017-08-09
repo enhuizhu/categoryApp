@@ -37,7 +37,7 @@ class App extends React.Component {
 
     updateAppStatus(statu, popup = true) {
         if (statu === status.NORMAL && popup) {
-            jQuery('#myModal').modal('show');
+            this.popup.show();
         }
 
         this.setState({appStatus: statu});
@@ -49,7 +49,7 @@ class App extends React.Component {
     }
 
     addQuote(obj) {
-        jQuery('#myModal').modal('hide');
+        this.popup.hide();    
         
         let newObj = {
             name: obj.quoteName,
@@ -67,7 +67,7 @@ class App extends React.Component {
     render() {
         return <div className='container'>            
             <Quotes items={this.state.quotes} statu={this.state.appStatus} changeStatus={this.updateAppStatus} edit={this.edit}></Quotes>
-            <AddQuote items={this.data.items} callback={this.addQuote} statu={this.state.appStatus} editItem={this.state.editItem}></AddQuote>
+            <AddQuote items={this.data.items} callback={this.addQuote} statu={this.state.appStatus} editItem={this.state.editItem} ref={c => {this.popup = c;}}></AddQuote>
         </div>;
     }
 }

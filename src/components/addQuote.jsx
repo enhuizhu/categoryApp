@@ -27,6 +27,14 @@ class AddQuote extends React.Component {
         };
     }
 
+    show() {
+        jQuery('#myModal').modal('show');
+    }
+
+    hide() {
+        jQuery('#myModal').modal('hide');
+    }
+
     getQuotePrice() {
         return this.isEditing() ? this.props.editItem.price : 0;
     }
