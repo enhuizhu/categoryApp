@@ -9,7 +9,7 @@ const cleanCSS = require('gulp-clean-css');
 const dest = './dist/';
 
 gulp.task('buildCss', function () {
-    return gulp.src('./src/scss/main.scss')
+    return gulp.src('./src/scss/style.scss')
         .pipe(sass().on('error', sass.logError))
         .pipe(gulp.dest(dest))
         .pipe(cleanCSS())
@@ -17,22 +17,22 @@ gulp.task('buildCss', function () {
 });
 
 gulp.task('buildJs', () => {
-   return browserify('./src/main.jsx', {debug: false})
+   return browserify('./src/index.js', {debug: true})
         .transform(babelify)
-        .plugin("minifyify", {map: false, uglify: {
-            compress: {
-                drop_console: true,
-                dead_code: true,
-                conditionals: true,
-                unused: true,
-                if_return: true,
-                global_defs: {
-                    DEBUG: false
-                }
-            },
-            mangle: true,
-            "screw-ie8": true
-        }})
+        // .plugin("minifyify", {map: false, uglify: {
+        //     compress: {
+        //         drop_console: true,
+        //         dead_code: true,
+        //         conditionals: true,
+        //         unused: true,
+        //         if_return: true,
+        //         global_defs: {
+        //             DEBUG: false
+        //         }
+        //     },
+        //     mangle: true,
+        //     "screw-ie8": true
+        // }})
         .bundle()
         .on('error', function(err) { console.error(err); this.emit('end'); })
         .pipe(source('bundle.js'))
@@ -40,8 +40,8 @@ gulp.task('buildJs', () => {
 });
 
 gulp.task('watch', () => {
-    gulp.watch(['./src/main.jsx', './src/**/*.jsx', './src/**/*.js'], ['buildJs']);
-    gulp.watch(['./src/scss/main.scss'], ['buildCss']);
+    gulp.watch(['./src/index.js', './src/**/*.js', './src/**/**/*.js'], ['buildJs']);
+    gulp.watch(['./src/scss/style.scss'], ['buildCss']);
 });
 
 gulp.task('default', ['buildJs', 'buildCss']);
