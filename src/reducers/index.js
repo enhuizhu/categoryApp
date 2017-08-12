@@ -2,31 +2,28 @@
 
 import events from '../constants/events';
 
-function addQuote(items, item) {
-    return items.concat(item);
-}
+const defaultCategories = [];
 
-function updateQuote(items, item) {
-	return items.map(v => {
-		if (v.id === item.id) return item;
-		return v;
-	});
-}
-
-function getQuotes(items, action) {
-	switch (action.type) {
-		case events.ADD_QUOTE:
-			return addQuote(items, action.data);
-
-		case events.UPDATE_QUOTE:
-			return updateQuote(items, action.data);
+function setCategories(categories, action) {
+	console.log('action', action);
+	if (action.type === events.ADD_CATEGORIES) {
+		return categories.concat(action.data);
 	}
 
-	return items;
+	return categories;
 }
 
-export default function offerApp(state = {items: []}, action) {
+function setStatus(statu, action) {
+	if (action.type === events.STATUS_CHANGED) {
+		return action.statu;
+	}
+
+	return statu;
+}
+
+export default function offerApp(state = {categories: defaultCategories, statu: 'feached'}, action) {
     return {
-        items: getQuotes(state.items, action)
+        categories: setCategories(state.categories, action),
+        statu: setStatus(state.statu, action)
     };   
 }

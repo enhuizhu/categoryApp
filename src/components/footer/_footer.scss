@@ -1,0 +1,19 @@
+//footer style
+.footer {
+	position: fixed;
+	width: 100%;
+	left: 0;
+    bottom: 0;
+	padding: $uiUnit / 2;
+	text-align: center;
+	background-color: $white;
+
+	.menu-item {
+		border: solid 1px $lineColor;
+		display: inline-block;
+		padding: $uiUnit;
+		text-align: center;
+		width: 50%;
+		background-color: $darkGray;
+	}
+}

@@ -1,0 +1,44 @@
+//style for categories
+.categories-container {
+	padding: 0;
+	margin: 0;
+	height: calc(100vh - 137px);
+	overflow-y: scroll;
+  	-webkit-overflow-scrolling: touch;
+	overflow-x: hidden; 
+	
+	.category-wrapper {
+		padding: $uiUnit/ 2;
+		border-bottom: solid 1px $lineColor;
+		cursor: pointer;
+
+		&:first-child {
+			border-top: solid 1px $lineColor;
+		}
+	
+		.icon {
+			float: left;
+			
+			img {
+				max-width: 75px;
+				border-radius: 50%;
+			}
+		}
+
+		.brif {
+			float: left;
+			padding-top: $uiUnit / 2;
+			margin-left: $uiUnit * 3 / 2;
+			
+			.name {
+				color: $primaryColor;
+				font-size: $basicFontSize + 2;
+				font-weight: bold;
+			}
+
+			.description {
+				margin-top: $uiUnit / 2;
+			}
+		}
+	}
+}

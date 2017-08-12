@@ -41,7 +41,7 @@ gulp.task('buildJs', () => {
 
 gulp.task('watch', () => {
     gulp.watch(['./src/index.js', './src/**/*.js', './src/**/**/*.js'], ['buildJs']);
-    gulp.watch(['./src/scss/style.scss'], ['buildCss']);
+    gulp.watch(['./src/scss/*.scss', './src/components/**/*.scss'], ['buildCss']);
 });
 
 gulp.task('default', ['buildJs', 'buildCss']);

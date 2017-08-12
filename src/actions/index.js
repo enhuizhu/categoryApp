@@ -1,22 +1,19 @@
 'use strict';
 
-import store from '../store/quotesStore';
 import events from '../constants/events';
 
-class QuotesAction {
-    static addQuote(item) {
-        store.dispatch({
-            type: events.ADD_QUOTE,
-            data: item
-        });
-    }
-
-    static updateQuote(item) {
-    	store.dispatch({
-    		type: events.UPDATE_QUOTE,
-    		data: item
-    	})
-    }
+export function selectCategory(catetory) {
+    console.log('selectCategory', catetory);
+    return {
+        type: events.SELECT_CATETORY,
+        data: catetory
+    };
 }
 
-export default QuotesAction;
+export function addCategories(categories) {
+    console.log('new categories coming', categories);
+    return {
+        type: events.ADD_CATEGORIES,
+        data: categories
+    };
+}

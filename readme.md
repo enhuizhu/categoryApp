@@ -2,4 +2,10 @@
 
 ### 1. how to run it? ###
 
-open index.html in your browser.
+open the terminal and run 
+
+```
+python -m server 8000
+```
+
+then open http://localhost:8000

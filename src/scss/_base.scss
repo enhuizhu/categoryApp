@@ -1,0 +1,24 @@
+//basic style
+$primaryColor: #343b43;
+$darkGray: #f2f3f3;
+$white: #ffffff;
+$mainFontColor: #8d8d8d;
+$lineColor: #ccc5c5;
+$uiUnit: 12px;
+$basicFontSize: 13px;
+$radiusSize: 3px;
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	font-size: $basicFontSize;
+	font-family: sans-serif;
+	color: $mainFontColor;
+}
+
+.clear {
+	clear: both;
+}
