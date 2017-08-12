@@ -1,4 +1,4 @@
-## Quotes Builder ##
+## Categroies App ##
 
 ### 1. how to run it? ###
 
