@@ -1,8 +1,8 @@
 'use strict';
 
 import { createStore } from 'redux';
-import quotesApp from '../reducers/quotesReducers';
+import categoryApp from '../reducers/index';
 
-let store = createStore(quotesApp);
+let store = createStore(categoryApp);
 
 export default store;

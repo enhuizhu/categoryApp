@@ -1,90 +1,90 @@
 //header style
 
 .header {
-	.title-bar {
-		background-color: $primaryColor;
-		position: relative;
-		padding: $uiUnit;
-		text-align: center;
-		color: $white;
+    .title-bar {
+        background-color: $primaryColor;
+        position: relative;
+        padding: $uiUnit;
+        text-align: center;
+        color: $white;
 
-		.search-icon {
-			position: absolute;
-			width: 30px;
-			height: 30px;
-			left: $uiUnit;
-			top: $uiUnit / 2;
-			background-image: url(../images/search.svg);
-			background-size: 100% 100%;
-		}
+        .search-icon {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            left: $uiUnit;
+            top: $uiUnit / 2;
+            background-image: url(../images/search.svg);
+            background-size: 100% 100%;
+        }
 
-		.title {
-			font-size: $basicFontSize + 5px;
-		}
-	}
+        .title {
+            font-size: $basicFontSize + 5px;
+        }
+    }
 
-	.search-box {
-		display: none;
+    .search-box {
+        display: none;
 
-		&.show {
-			display: block;
-		}
-		
-		input[type=text] {
-			width: 100%;
-			padding: $uiUnit;
-			border-radius: $radiusSize;
-			border-width: 0;
-		}
-	}
+        &.show {
+            display: block;
+        }
+        
+        input[type=text] {
+            width: 100%;
+            padding: $uiUnit;
+            border-radius: $radiusSize;
+            border-width: 0;
+        }
+    }
 
-	.lng-bar {
-		background-color: $darkGray;
-		padding: $uiUnit;
-		
-		label {
-			color: $primaryColor;
-			float: left;
-			font-weight: bold;
-		}
+    .lng-bar {
+        background-color: $darkGray;
+        padding: $uiUnit;
+        
+        label {
+            color: $primaryColor;
+            float: left;
+            font-weight: bold;
+        }
 
-		.lng-wrapper {			
-			position: relative;
-			float: right;
-			cursor: pointer;
+        .lng-wrapper {          
+            position: relative;
+            float: right;
+            cursor: pointer;
 
-			
-			$borderSize: 5px;
-		
-			.arrow-down {
-				position: relative;
-				margin-left: $uiUnit / 2;
-				border: $borderSize solid transparent;
-				border-top-color: $mainFontColor;
-				top: $uiUnit;
-			}
+            
+            $borderSize: 5px;
+        
+            .arrow-down {
+                position: relative;
+                margin-left: $uiUnit / 2;
+                border: $borderSize solid transparent;
+                border-top-color: $mainFontColor;
+                top: $uiUnit;
+            }
 
-			.lng-list {
-				position: absolute;
-				display: none;
-				right: 0;
-				top: $uiUnit * 3 / 2;
-				background: $white;
-				border: 1px solid $lineColor;
+            .lng-list {
+                position: absolute;
+                display: none;
+                right: 0;
+                top: $uiUnit * 3 / 2;
+                background: $white;
+                border: 1px solid $lineColor;
 
-				&.show {
-					display: block;
-				}
-				
-				.lng-item {
-					padding: $uiUnit;
-					border-bottom: 1px solid $lineColor;
-					cursor: pointer;
-					&:hover {
-						background-color: $darkGray;
-					}
-				}
-			}
-		}
-	}
+                &.show {
+                    display: block;
+                }
+                
+                .lng-item {
+                    padding: $uiUnit;
+                    border-bottom: 1px solid $lineColor;
+                    cursor: pointer;
+                    &:hover {
+                        background-color: $darkGray;
+                    }
+                }
+            }
+        }
+    }
 }
