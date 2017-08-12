@@ -5,20 +5,20 @@ import events from '../constants/events';
 const defaultCategories = [];
 
 function setCategories(categories, action) {
-	console.log('action', action);
-	if (action.type === events.ADD_CATEGORIES) {
-		return categories.concat(action.data);
-	}
+    console.log('action', action);
+    if (action.type === events.ADD_CATEGORIES) {
+        return categories.concat(action.data);
+    }
 
-	return categories;
+    return categories;
 }
 
 function setStatus(statu, action) {
-	if (action.type === events.STATUS_CHANGED) {
-		return action.statu;
-	}
+    if (action.type === events.STATUS_CHANGED) {
+        return action.statu;
+    }
 
-	return statu;
+    return statu;
 }
 
 export default function offerApp(state = {categories: defaultCategories, statu: 'feached'}, action) {
